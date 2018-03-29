@@ -1,0 +1,96 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:columnCount="4"
+            tools:context="com.example.chris.pcalc.ButtonGroupFragment">
+
+    <Button
+            android:id="@+id/button_clear"
+            android:text="@string/button_clear"
+            android:layout_column="3"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button1"
+            android:text="@string/button1"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button2"
+            android:text="@string/button2"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button3"
+            android:text="@string/button3"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button_div"
+            android:text="@string/button_div"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button4"
+            android:text="@string/button4"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button5"
+            android:text="@string/button5"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button6"
+            android:text="@string/button6"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button_times"
+            android:text="@string/button_times"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button7"
+            android:text="@string/button7"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button8"
+            android:text="@string/button8"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button9"
+            android:text="@string/button9"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button_minus"
+            android:text="@string/button_minus"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button0"
+            android:text="@string/button0"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button_pleft"
+            android:text="@string/button_pleft"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button_pright"
+            android:text="@string/button_pright"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button_plus"
+            android:text="@string/button_plus"
+            android:onClick="pressButton"/>
+
+</GridLayout>
