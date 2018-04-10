@@ -8,24 +8,30 @@
             tools:context="com.example.chris.pcalc.ButtonGroupFragment">
 
     <Button
+            android:id="@+id/button_delete"
+            android:text="@string/button_delete"
+            android:layout_column="2"
+            android:onClick="pressButton"/>
+
+    <Button
             android:id="@+id/button_clear"
             android:text="@string/button_clear"
             android:layout_column="3"
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button1"
-            android:text="@string/button1"
+            android:id="@+id/button7"
+            android:text="@string/button7"
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button2"
-            android:text="@string/button2"
+            android:id="@+id/button8"
+            android:text="@string/button8"
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button3"
-            android:text="@string/button3"
+            android:id="@+id/button9"
+            android:text="@string/button9"
             android:onClick="pressButton"/>
 
     <Button
@@ -54,18 +60,18 @@
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button7"
-            android:text="@string/button7"
+            android:id="@+id/button1"
+            android:text="@string/button1"
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button8"
-            android:text="@string/button8"
+            android:id="@+id/button2"
+            android:text="@string/button2"
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button9"
-            android:text="@string/button9"
+            android:id="@+id/button3"
+            android:text="@string/button3"
             android:onClick="pressButton"/>
 
     <Button
@@ -74,13 +80,13 @@
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button0"
-            android:text="@string/button0"
+            android:id="@+id/button_pleft"
+            android:text="@string/button_pleft"
             android:onClick="pressButton"/>
 
     <Button
-            android:id="@+id/button_pleft"
-            android:text="@string/button_pleft"
+            android:id="@+id/button0"
+            android:text="@string/button0"
             android:onClick="pressButton"/>
 
     <Button

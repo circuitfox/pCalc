@@ -26,6 +26,6 @@ public class Message {
     }
 
     public String toString() {
-        return type.toString() + ": " + value;
+        return type.toString() + "(" + value + ")";
     }
 }

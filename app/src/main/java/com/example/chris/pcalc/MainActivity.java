@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity
         input.setKeyListener(null);
     }
 
-    public void pressButton(View view) {
-        buttonGroupFragment.onButtonPressed(view);
-    }
-
     @Override
     public void onButtonPress(Message message) {
         Log.d("pCalc", message.toString());
@@ -42,6 +38,13 @@ public class MainActivity extends AppCompatActivity
                 break;
             case SYMBOL:
                 input.append(message.getValue());
+                break;
+            case DELETE:
+                String text = input.getText().toString();
+                if (text.length() > 0) {
+                    input.setText(text.substring(0, text.length() - 1));
+                    input.setSelection(input.getText().length());
+                }
                 break;
             default:
                 Log.w("pCalc", "Unhandled message " + message);
@@ -54,5 +57,9 @@ public class MainActivity extends AppCompatActivity
         Log.d("pCalc", resultStr);
         Tokens tokens = new Tokenizer(resultStr).tokenize();
         Log.d("pCalc", tokens.toString());
+    }
+
+    public void pressButton(View view) {
+        buttonGroupFragment.pressButton(view);
     }
 }

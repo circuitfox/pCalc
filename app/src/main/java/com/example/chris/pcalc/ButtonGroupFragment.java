@@ -49,36 +49,21 @@ public class ButtonGroupFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_button_group, container, false);
     }
 
-    public void onButtonPressed(View view) {
+    public void pressButton(View view) {
         if (mListener != null) {
             MessageType type;
             String messageText = "";
             switch(view.getId()) {
-                case R.id.button0:
-                case R.id.button1:
-                case R.id.button2:
-                case R.id.button3:
-                case R.id.button4:
-                case R.id.button5:
-                case R.id.button6:
-                case R.id.button7:
-                case R.id.button8:
-                case R.id.button9:
-                case R.id.button_plus:
-                case R.id.button_minus:
-                case R.id.button_times:
-                case R.id.button_div:
-                case R.id.button_pleft:
-                case R.id.button_pright:
-                    Button button = view.findViewById(view.getId());
-                    type = MessageType.SYMBOL;
-                    messageText = button.getText().toString();
-                    break;
                 case R.id.button_clear:
                     type = MessageType.CLEAR;
                     break;
+                case R.id.button_delete:
+                    type = MessageType.DELETE;
+                    break;
                 default:
+                    Button button = view.findViewById(view.getId());
                     type = MessageType.SYMBOL;
+                    messageText = button.getText().toString();
                     break;
             }
             Message message = new Message(type, messageText);
@@ -114,7 +99,6 @@ public class ButtonGroupFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnButtonPressListener {
-        // TODO: Update argument type and name
         void onButtonPress(Message message);
     }
 }
