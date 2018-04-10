@@ -49,7 +49,8 @@
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/input"
             android:layout_marginStart="16dp"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:onClick="pressEquals"/>
 
     <fragment
             android:layout_width="match_parent"

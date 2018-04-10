@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.example.chris.pcalc.input.Message;
 import com.example.chris.pcalc.input.MessageType;
+import com.example.chris.pcalc.parse.Tokenizer;
+import com.example.chris.pcalc.parse.Tokens;
 
 public class MainActivity extends AppCompatActivity
     implements ButtonGroupFragment.OnButtonPressListener {
@@ -45,5 +47,12 @@ public class MainActivity extends AppCompatActivity
                 Log.w("pCalc", "Unhandled message " + message);
                 break;
         }
+    }
+
+    public void pressEquals(View view) {
+        String resultStr = input.getText().toString();
+        Log.d("pCalc", resultStr);
+        Tokens tokens = new Tokenizer(resultStr).tokenize();
+        Log.d("pCalc", tokens.toString());
     }
 }
