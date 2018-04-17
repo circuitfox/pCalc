@@ -1,9 +1,11 @@
 package com.example.chris.pcalc.parse;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Tokens {
+public class Tokens implements Iterable<Token> {
     private ArrayList<Token> tokens;
 
     public Tokens() {
@@ -14,6 +16,7 @@ public class Tokens {
         tokens.add(token);
     }
 
+    @NonNull
     public Iterator<Token> iterator() {
         return tokens.iterator();
     }

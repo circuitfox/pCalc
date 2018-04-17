@@ -7,16 +7,20 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.example.chris.pcalc.ast.Ast;
 import com.example.chris.pcalc.input.Message;
 import com.example.chris.pcalc.input.MessageType;
 import com.example.chris.pcalc.parse.Tokenizer;
 import com.example.chris.pcalc.parse.Tokens;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
     implements ButtonGroupFragment.OnButtonPressListener {
 
     private ButtonGroupFragment buttonGroupFragment;
     private EditText input;
+    private TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         buttonGroupFragment = (ButtonGroupFragment)getSupportFragmentManager().findFragmentById(R.id.buttonGroup);
         input = findViewById(R.id.input);
+        result = findViewById(R.id.result);
 
         // we want users clicking the buttons, not typing stuff in
         input.setKeyListener(null);
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         switch (message.getType()) {
             case CLEAR:
                 input.setText("");
+                result.setText("");
                 break;
             case SYMBOL:
                 input.append(message.getValue());
@@ -56,7 +62,11 @@ public class MainActivity extends AppCompatActivity
         String resultStr = input.getText().toString();
         Log.d("pCalc", resultStr);
         Tokens tokens = new Tokenizer(resultStr).tokenize();
-        Log.d("pCalc", tokens.toString());
+        Log.d("pCalc/parse", tokens.toString());
+        Ast ast = new Ast(tokens);
+        Log.d("pCalc/ast", ast.toString());
+        int value = ast.evaluate();
+        result.setText(String.format(Locale.getDefault(), "%d", value));
     }
 
     public void pressButton(View view) {
