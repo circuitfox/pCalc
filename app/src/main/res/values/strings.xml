@@ -15,10 +15,15 @@
     <string name="button7">7</string>
     <string name="button8">8</string>
     <string name="button9">9</string>
+
+    <!-- ops -->
     <string name="button_plus">+</string>
     <string name="button_minus">-</string>
     <string name="button_times">*</string>
     <string name="button_div">/</string>
+    <string name="button_pow">^</string>
+
+    <!-- misc -->
     <string name="button_clear">C</string>
     <string name="button_delete">D</string>
     <string name="button_pleft">(</string>

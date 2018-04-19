@@ -2,6 +2,7 @@ package com.example.chris.pcalc.ast;
 
 public enum BinOp implements Comparable<BinOp> {
     // this ordering is to enforce PEMDAS
+    POW,
     MULTIPLY,
     DIVIDE,
     ADD,
@@ -17,6 +18,8 @@ public enum BinOp implements Comparable<BinOp> {
                 return BinOp.MULTIPLY;
             case "/":
                 return BinOp.DIVIDE;
+            case "^":
+                return BinOp.POW;
             default:
                 throw new IllegalArgumentException("Illegal value for binop: " + str);
         }
@@ -33,6 +36,8 @@ public enum BinOp implements Comparable<BinOp> {
                 return "*";
             case DIVIDE:
                 return "/";
+            case POW:
+                return "^";
             default:
                 return "";
         }

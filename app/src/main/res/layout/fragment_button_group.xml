@@ -10,12 +10,18 @@
     <Button
             android:id="@+id/button_delete"
             android:text="@string/button_delete"
-            android:layout_column="2"
+            android:layout_column="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_clear"
             android:text="@string/button_clear"
+            android:layout_column="2"
+            android:onClick="pressButton"/>
+
+    <Button
+            android:id="@+id/button_pow"
+            android:text="@string/button_pow"
             android:layout_column="3"
             android:onClick="pressButton"/>
 

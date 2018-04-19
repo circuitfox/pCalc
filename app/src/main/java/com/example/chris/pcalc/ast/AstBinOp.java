@@ -61,6 +61,8 @@ public class AstBinOp extends AstNode {
                 return left.evaluate() * right.evaluate();
             case DIVIDE:
                 return left.evaluate() / right.evaluate();
+            case POW:
+                return (int)Math.pow(left.evaluate(), right.evaluate());
             default:
                 Log.w("ast/binop", "Unimplemented binary operation " + op);
                 return 0;

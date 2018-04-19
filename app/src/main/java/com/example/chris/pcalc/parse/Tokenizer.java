@@ -12,7 +12,7 @@ public class Tokenizer {
             Arrays.asList('(', ')')
     ));
     private static final Set<Character> OP_CHARS = Collections.unmodifiableSet(new HashSet<>(
-            Arrays.asList('+', '-', '*', '/')
+            Arrays.asList('+', '-', '*', '/', '^')
     ));
 
     private char[] stream;
