@@ -1,108 +1,128 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:columnCount="4"
-            tools:context="com.example.chris.pcalc.ButtonGroupFragment">
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                      xmlns:tools="http://schemas.android.com/tools"
+                                      xmlns:app="http://schemas.android.com/apk/res-auto"
+                                      android:layout_width="match_parent"
+                                      android:layout_height="match_parent"
+                                      app:orientation="horizontal"
+                                      android:layout_gravity="center"
+                                      app:columnCount="4"
+                                      tools:context="com.example.chris.pcalc.ButtonGroupFragment">
 
     <Button
             android:id="@+id/button_delete"
             android:text="@string/button_delete"
-            android:layout_column="1"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_clear"
             android:text="@string/button_clear"
-            android:layout_column="2"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_pow"
             android:text="@string/button_pow"
-            android:layout_column="3"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button7"
             android:text="@string/button7"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button8"
             android:text="@string/button8"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button9"
             android:text="@string/button9"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_div"
             android:text="@string/button_div"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button4"
             android:text="@string/button4"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button5"
             android:text="@string/button5"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button6"
             android:text="@string/button6"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_times"
             android:text="@string/button_times"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button1"
             android:text="@string/button1"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button2"
             android:text="@string/button2"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button3"
             android:text="@string/button3"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_minus"
             android:text="@string/button_minus"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_pleft"
             android:text="@string/button_pleft"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button0"
             android:text="@string/button0"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_pright"
             android:text="@string/button_pright"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
     <Button
             android:id="@+id/button_plus"
             android:text="@string/button_plus"
+            app:layout_columnWeight="1"
             android:onClick="pressButton"/>
 
-</GridLayout>
+</android.support.v7.widget.GridLayout>

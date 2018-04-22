@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="MultiButtonView">
+        <attr name="smallTextSize" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="topButtonText" format="string" />
+        <attr name="bottomButtonText" format="string" />
+        <attr name="leftButtonText" format="string" />
+        <attr name="rightButtonText" format="string" />
+        <attr name="centerButtonText" format="string" />
+    </declare-styleable>
+</resources>

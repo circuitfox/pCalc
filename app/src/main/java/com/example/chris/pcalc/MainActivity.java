@@ -3,13 +3,11 @@ package com.example.chris.pcalc;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.chris.pcalc.ast.Ast;
 import com.example.chris.pcalc.input.Message;
-import com.example.chris.pcalc.input.MessageType;
 import com.example.chris.pcalc.parse.Tokenizer;
 import com.example.chris.pcalc.parse.Tokens;
 
