@@ -6,6 +6,6 @@
         <attr name="bottomButtonText" format="string" />
         <attr name="leftButtonText" format="string" />
         <attr name="rightButtonText" format="string" />
-        <attr name="centerButtonText" format="string" />
+        <attr name="android:text" />
     </declare-styleable>
 </resources>

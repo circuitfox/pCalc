@@ -16,7 +16,7 @@
         <item name="bottomButtonText"/>
         <item name="leftButtonText"/>
         <item name="rightButtonText"/>
-        <item name="centerButtonText"/>
+        <item name="android:text"/>
         <item name="android:gravity">center_vertical|center_horizontal</item>
     </style>
 </resources>

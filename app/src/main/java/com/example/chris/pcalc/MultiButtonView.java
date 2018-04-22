@@ -49,7 +49,7 @@ public class MultiButtonView extends LinearLayout
         String bottomButtonTextStr = attr.getString(R.styleable.MultiButtonView_bottomButtonText);
         String leftButtonTextStr = attr.getString(R.styleable.MultiButtonView_leftButtonText);
         String rightButtonTextStr = attr.getString(R.styleable.MultiButtonView_rightButtonText);
-        String centerButtonTextStr = attr.getString(R.styleable.MultiButtonView_centerButtonText);
+        String centerButtonTextStr = attr.getString(R.styleable.MultiButtonView_android_text);
         attr.recycle();
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -79,6 +79,10 @@ public class MultiButtonView extends LinearLayout
 
     public CharSequence getText() {
         return lastClicked;
+    }
+
+    public void setText(String text) {
+        centerButtonText.setText(text);
     }
 
     public CharSequence getTopButtonText() {
