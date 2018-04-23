@@ -62,7 +62,7 @@ public class ButtonGroupFragment extends Fragment {
                     type = MessageType.DELETE;
                     break;
                 default:
-                    Button button = view.findViewById(view.getId());
+                    MultiButtonView button = view.findViewById(view.getId());
                     type = MessageType.SYMBOL;
                     messageText = button.getText().toString();
                     break;

@@ -3,126 +3,194 @@
                                       xmlns:app="http://schemas.android.com/apk/res-auto"
                                       android:layout_width="match_parent"
                                       android:layout_height="match_parent"
+                                      android:gravity="fill"
                                       app:orientation="horizontal"
-                                      android:layout_gravity="center"
                                       app:columnCount="4"
+                                      app:rowCount="5"
+                                      app:alignmentMode="alignBounds"
+                                      app:rowOrderPreserved="false"
                                       tools:context="com.example.chris.pcalc.ButtonGroupFragment">
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button_delete"
             android:text="@string/button_delete"
-            app:layout_column="1"
-            app:layout_columnWeight="1"
-            android:onClick="pressButton"/>
-
-    <Button
-            android:id="@+id/button_clear"
-            android:text="@string/button_clear"
             app:layout_column="2"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
-            android:id="@+id/button_pow"
-            android:text="@string/button_pow"
-            app:layout_column="3"
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
+            android:id="@+id/button_clear"
+            android:text="@string/button_clear"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button7"
             android:text="@string/button7"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button8"
             android:text="@string/button8"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button9"
             android:text="@string/button9"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button_div"
             android:text="@string/button_div"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button4"
             android:text="@string/button4"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button5"
             android:text="@string/button5"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button6"
             android:text="@string/button6"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button_times"
             android:text="@string/button_times"
+            app:topButtonText="@string/button_pow"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button1"
             android:text="@string/button1"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button2"
             android:text="@string/button2"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button3"
             android:text="@string/button3"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button_minus"
             android:text="@string/button_minus"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button_pleft"
             android:text="@string/button_pleft"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button0"
             android:text="@string/button0"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button_pright"
             android:text="@string/button_pright"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
-    <Button
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
             android:id="@+id/button_plus"
             android:text="@string/button_plus"
             app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
             android:onClick="pressButton"/>
 
 </android.support.v7.widget.GridLayout>

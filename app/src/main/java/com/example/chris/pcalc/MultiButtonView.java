@@ -3,15 +3,15 @@ package com.example.chris.pcalc;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MultiButtonView extends LinearLayout
+public class MultiButtonView extends ConstraintLayout
         implements GestureDetector.OnGestureListener {
     private GestureDetectorCompat gestureDetector;
 
