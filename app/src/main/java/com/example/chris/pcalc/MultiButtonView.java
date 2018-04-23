@@ -7,6 +7,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.widget.TextView;
@@ -158,6 +159,7 @@ public class MultiButtonView extends ConstraintLayout
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
         lastClicked = centerButtonText.getText().toString();
+        performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         return true;
     }
 
@@ -186,6 +188,7 @@ public class MultiButtonView extends ConstraintLayout
                 lastClicked = rightButtonText.getText().toString();
                 break;
         }
+        performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         return true;
     }
 

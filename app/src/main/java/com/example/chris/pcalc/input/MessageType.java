@@ -3,7 +3,8 @@ package com.example.chris.pcalc.input;
 public enum MessageType {
     SYMBOL,
     CLEAR,
-    DELETE;
+    DELETE,
+    EQUALS;
 
     @Override
     public String toString() {
@@ -18,6 +19,8 @@ public enum MessageType {
             case DELETE:
                 name = "DELETE";
                 break;
+            case EQUALS:
+                name = "EQUALS";
         }
         return name;
     }

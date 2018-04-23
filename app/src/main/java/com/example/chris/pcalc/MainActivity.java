@@ -17,24 +17,23 @@ public class MainActivity extends AppCompatActivity
     implements ButtonGroupFragment.OnButtonPressListener {
 
     private ButtonGroupFragment buttonGroupFragment;
-    private EditText input;
-    private TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttonGroupFragment = (ButtonGroupFragment)getSupportFragmentManager().findFragmentById(R.id.buttonGroup);
-        input = findViewById(R.id.input);
-        result = findViewById(R.id.result);
 
         // we want users clicking the buttons, not typing stuff in
+        EditText input = findViewById(R.id.input);
         input.setKeyListener(null);
     }
 
     @Override
     public void onButtonPress(Message message) {
         Log.d("pCalc", message.toString());
+        EditText input = findViewById(R.id.input);
+        TextView result = findViewById(R.id.result);
         switch (message.getType()) {
             case CLEAR:
                 input.setText("");
@@ -50,16 +49,20 @@ public class MainActivity extends AppCompatActivity
                     input.setSelection(input.getText().length());
                 }
                 break;
+            case EQUALS:
+                text = input.getText().toString();
+                evaluate(text);
+                break;
             default:
                 Log.w("pCalc", "Unhandled message " + message);
                 break;
         }
     }
 
-    public void pressEquals(View view) {
-        String resultStr = input.getText().toString();
-        Log.d("pCalc", resultStr);
-        Tokens tokens = new Tokenizer(resultStr).tokenize();
+    public void evaluate(String input) {
+        TextView result = findViewById(R.id.result);
+        Log.d("pCalc", input);
+        Tokens tokens = new Tokenizer(input).tokenize();
         Log.d("pCalc/parse", tokens.toString());
         Ast ast = new Ast(tokens);
         Log.d("pCalc/ast", ast.toString());

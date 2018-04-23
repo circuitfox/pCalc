@@ -11,7 +11,7 @@
 
     <style name="MultiButtonView">
         <item name="smallTextSize">6sp</item>
-        <item name="textSize">12sp</item>
+        <item name="textSize">14sp</item>
         <item name="topButtonText"/>
         <item name="bottomButtonText"/>
         <item name="leftButtonText"/>

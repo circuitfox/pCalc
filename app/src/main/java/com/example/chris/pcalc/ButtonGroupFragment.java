@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import com.example.chris.pcalc.input.Message;
 import com.example.chris.pcalc.input.MessageType;
 
@@ -61,8 +62,11 @@ public class ButtonGroupFragment extends Fragment {
                 case R.id.button_delete:
                     type = MessageType.DELETE;
                     break;
+                case R.id.button_equals:
+                    type = MessageType.EQUALS;
+                    break;
                 default:
-                    MultiButtonView button = view.findViewById(view.getId());
+                    MultiButtonView button = (MultiButtonView)view;
                     type = MessageType.SYMBOL;
                     messageText = button.getText().toString();
                     break;
