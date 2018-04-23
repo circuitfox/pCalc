@@ -9,14 +9,17 @@
         <item name="multiButtonViewStyle">@style/MultiButtonView</item>
     </style>
 
-    <style name="MultiButtonView" parent="@style/Widget.AppCompat.Button">
+    <style name="MultiButtonView">
         <item name="smallTextSize">6sp</item>
-        <item name="textSize">14sp</item>
+        <item name="textSize">12sp</item>
         <item name="topButtonText"/>
         <item name="bottomButtonText"/>
         <item name="leftButtonText"/>
         <item name="rightButtonText"/>
         <item name="android:text"/>
         <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/button_flat</item>
     </style>
 </resources>
