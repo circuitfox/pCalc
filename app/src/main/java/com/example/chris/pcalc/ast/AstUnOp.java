@@ -44,6 +44,8 @@ public class AstUnOp extends AstNode {
         switch (op) {
             case NEGATIVE:
                 return -right.evaluate();
+            case NOT:
+                return ~right.evaluate();
             default:
                 Log.w("ast/unop", "Unimplemented unary operation " + op);
                 return 0;

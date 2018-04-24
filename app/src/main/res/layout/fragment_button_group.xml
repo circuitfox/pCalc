@@ -42,9 +42,22 @@
             android:layout_height="0dp"
             android:padding="0dp"
             android:hapticFeedbackEnabled="true"
+            android:id="@+id/button_mod"
+            android:text="@string/button_mod"
+            app:leftButtonText="@string/button_shl"
+            app:rightButtonText="@string/button_shr"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            android:onClick="pressButton"/>
+
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="0dp"
+            android:hapticFeedbackEnabled="true"
             android:id="@+id/button_delete"
             android:text="@string/button_delete"
-            app:layout_column="2"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -100,6 +113,7 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_div"
             android:text="@string/button_div"
+            app:bottomButtonText="@string/button_or"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -145,6 +159,7 @@
             android:id="@+id/button_times"
             android:text="@string/button_times"
             app:topButtonText="@string/button_pow"
+            app:bottomButtonText="@string/button_xor"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -189,6 +204,7 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_minus"
             android:text="@string/button_minus"
+            app:bottomButtonText="@string/button_not"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -232,6 +248,7 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_plus"
             android:text="@string/button_plus"
+            app:bottomButtonText="@string/button_and"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>

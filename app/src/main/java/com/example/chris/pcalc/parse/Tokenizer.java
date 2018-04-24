@@ -12,7 +12,10 @@ public class Tokenizer {
             Arrays.asList('(', ')')
     ));
     private static final Set<Character> OP_CHARS = Collections.unmodifiableSet(new HashSet<>(
-            Arrays.asList('+', '-', '*', '/', '^')
+            Arrays.asList('+', '-', '*', '/', '^', '%')
+    ));
+    private static final Set<String> BITWISE_OPS = Collections.unmodifiableSet(new HashSet<>(
+            Arrays.asList("and", "or", "not", "xor", ">>", "<<")
     ));
 
     private char[] stream;
@@ -25,10 +28,15 @@ public class Tokenizer {
         Tokens tokens = new Tokens();
         StringBuilder currentToken = null;
         int tokenPosition = -1;
+        Log.d("parse", "stream: " + String.valueOf(stream));
+        Log.d("parse", "stream.length: " + String.valueOf(stream.length));
         for (int i = 0; i < stream.length; i++) {
             char c = stream[i];
 
+            Log.v("parse", "c: " + c);
+            Log.v("parse", "i: " + i);
             if (Character.isDigit(c)) {
+                Log.d("parse", "isDigit: " + c);
                 if (tokenPosition == -1) {
                     tokenPosition = i;
                 }
@@ -55,6 +63,28 @@ public class Tokenizer {
             } else if (OP_CHARS.contains(c)) {
                 Token token = new Token(TokenType.TOKEN_OPERATOR, i, String.valueOf(c));
                 tokens.add(token);
+            } else {
+                // lookahead
+                if (Character.isLetter(c)) {
+                    if (i < stream.length - 2) {
+                        String bitwise = String.valueOf(stream, i, 3).trim();
+                        if (BITWISE_OPS.contains(bitwise)) {
+                            tokens.add(new Token(TokenType.TOKEN_OPERATOR, i, bitwise));
+                        }
+                        i += 2;
+                    } else if (i < stream.length - 1) {
+                        String or = String.valueOf(stream, i, 2);
+                        if (or.equals("or")) {
+                            tokens.add(new Token(TokenType.TOKEN_OPERATOR, i, or));
+                        }
+                        i += 1;
+                    }
+                } else if (c == '<' || c == '>' && i < stream.length - 1) {
+                    String shift = String.valueOf(stream, i, 2);
+                    if (BITWISE_OPS.contains(shift)) {
+                        tokens.add(new Token(TokenType.TOKEN_OPERATOR, i, shift));
+                    }
+                }
             }
         }
 

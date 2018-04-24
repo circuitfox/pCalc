@@ -5,8 +5,14 @@ public enum BinOp implements Comparable<BinOp> {
     POW,
     MULTIPLY,
     DIVIDE,
+    MOD,
     ADD,
-    SUBTRACT;
+    SUBTRACT,
+    SHL,
+    SHR,
+    AND,
+    XOR,
+    OR;
 
     public static BinOp fromString(String str) {
         switch (str) {
@@ -20,6 +26,18 @@ public enum BinOp implements Comparable<BinOp> {
                 return BinOp.DIVIDE;
             case "^":
                 return BinOp.POW;
+            case "and":
+                return BinOp.AND;
+            case "or":
+                return BinOp.OR;
+            case "xor":
+                return BinOp.XOR;
+            case "%":
+                return BinOp.MOD;
+            case "<<":
+                return BinOp.SHL;
+            case ">>":
+                return BinOp.SHR;
             default:
                 throw new IllegalArgumentException("Illegal value for binop: " + str);
         }
@@ -38,6 +56,18 @@ public enum BinOp implements Comparable<BinOp> {
                 return "/";
             case POW:
                 return "^";
+            case AND:
+                return "and";
+            case OR:
+                return "or";
+            case XOR:
+                return "xor";
+            case MOD:
+                return "%";
+            case SHL:
+                return "<<";
+            case SHR:
+                return ">>";
             default:
                 return "";
         }
