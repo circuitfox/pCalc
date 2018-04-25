@@ -1,21 +1,23 @@
 package com.example.chris.pcalc.ast;
 
-public class AstValue extends AstNode {
-    private int value;
+import com.example.chris.pcalc.numeric.Numeric;
+
+public class AstValue<N extends Number> extends AstNode<N> {
+    private Numeric<N> value;
     private int depth;
 
-    public AstValue(int value) {
+    public AstValue(Numeric<N> value) {
         this.value = value;
         this.depth = 0;
     }
 
     @Override
-    public void setLeft(AstNode left) {
+    public void setLeft(AstNode<N> left) {
         throw new UnsupportedOperationException("AstValue has no children");
     }
 
     @Override
-    public void setRight(AstNode right) {
+    public void setRight(AstNode<N> right) {
         throw new UnsupportedOperationException("AstValue has no children");
     }
 
@@ -30,16 +32,16 @@ public class AstValue extends AstNode {
     }
 
     @Override
-    public int evaluate() {
+    public Numeric<N> evaluate() {
         return value;
     }
 
     @Override
-    public void append(AstNode node) {
+    public void append(AstNode<N> node) {
         throw new UnsupportedOperationException("AstValue cannot be appended to");
     }
 
     public String toString() {
-        return Integer.toString(value);
+        return value.toString();
     }
 }

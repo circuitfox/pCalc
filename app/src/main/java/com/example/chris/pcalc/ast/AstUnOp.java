@@ -1,10 +1,10 @@
 package com.example.chris.pcalc.ast;
 
 import android.util.Log;
+import com.example.chris.pcalc.numeric.Numeric;
 
-public class AstUnOp extends AstNode {
-
-    private AstNode right;
+public class AstUnOp<N extends Number> extends AstNode<N> {
+    private AstNode<N> right;
     private UnOp op;
     private int depth;
 
@@ -15,17 +15,17 @@ public class AstUnOp extends AstNode {
     }
 
     @Override
-    public void setLeft(AstNode left) {
+    public void setLeft(AstNode<N> left) {
         throw new UnsupportedOperationException("Unary operaters take only right children");
     }
 
     @Override
-    public AstNode getRight() {
+    public AstNode<N> getRight() {
         return right;
     }
 
     @Override
-    public void setRight(AstNode right) {
+    public void setRight(AstNode<N> right) {
         this.right = right;
     }
 
@@ -40,20 +40,20 @@ public class AstUnOp extends AstNode {
     }
 
     @Override
-    public int evaluate() {
+    public Numeric<N> evaluate() {
         switch (op) {
             case NEGATIVE:
-                return -right.evaluate();
+                return right.evaluate().neg();
             case NOT:
-                return ~right.evaluate();
+                return right.evaluate().not();
             default:
                 Log.w("ast/unop", "Unimplemented unary operation " + op);
-                return 0;
+                throw new UnsupportedOperationException();
         }
     }
 
     @Override
-    public void append(AstNode node) {
+    public void append(AstNode<N> node) {
         if (right == null) {
             right = node;
         } else {

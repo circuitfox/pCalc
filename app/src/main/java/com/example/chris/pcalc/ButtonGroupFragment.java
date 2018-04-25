@@ -1,16 +1,17 @@
 package com.example.chris.pcalc;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 import com.example.chris.pcalc.input.Message;
 import com.example.chris.pcalc.input.MessageType;
+import com.example.chris.pcalc.numeric.Mode;
 
 
 /**
@@ -45,7 +46,7 @@ public class ButtonGroupFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_button_group, container, false);
@@ -64,6 +65,11 @@ public class ButtonGroupFragment extends Fragment {
                     break;
                 case R.id.button_equals:
                     type = MessageType.EQUALS;
+                    break;
+                case R.id.button_mode:
+                    MultiButtonView mode = (MultiButtonView)view;
+                    type = MessageType.MODE;
+                    messageText = mode.getText().toString();
                     break;
                 default:
                     MultiButtonView button = (MultiButtonView)view;
@@ -93,6 +99,41 @@ public class ButtonGroupFragment extends Fragment {
         mListener = null;
     }
 
+    public void switchMode(Mode mode) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            MultiButtonView mode_btn = activity.findViewById(R.id.button_mode);
+            MultiButtonView mod = activity.findViewById(R.id.button_mod);
+            MultiButtonView div = activity.findViewById(R.id.button_div);
+            MultiButtonView mul = activity.findViewById(R.id.button_times);
+            MultiButtonView add = activity.findViewById(R.id.button_plus);
+            MultiButtonView sub = activity.findViewById(R.id.button_minus);
+            switch (mode) {
+                case INT:
+                    mode_btn.setCenterButtonText(R.string.button_mode_int);
+                    mod.setLeftButtonText(R.string.button_shl);
+                    mod.setRightButtonText(R.string.button_shr);
+                    mul.setBottomButtonText(R.string.button_xor);
+                    div.setBottomButtonText(R.string.button_or);
+                    add.setBottomButtonText(R.string.button_and);
+                    sub.setBottomButtonText(R.string.button_not);
+                    break;
+                case REAL:
+                    mode_btn.setCenterButtonText(R.string.button_mode_real);
+                    mod.setLeftButtonText("");
+                    mod.setRightButtonText("");
+                    mul.setBottomButtonText("");
+                    div.setBottomButtonText("");
+                    add.setBottomButtonText("");
+                    sub.setBottomButtonText("");
+                    break;
+                default:
+                    Log.w("pCalc", "Unimplemented mode " + mode);
+            }
+        } else {
+            Log.wtf("pCalc", "Can't get activity");
+        }
+    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

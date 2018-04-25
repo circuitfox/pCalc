@@ -14,7 +14,7 @@
 
     <TextView
             android:text="Left"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/leftValue"
             android:textAlignment="viewStart"
@@ -38,7 +38,7 @@
 
     <TextView
             android:text="Right"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rightValue"
             android:textAlignment="viewEnd"

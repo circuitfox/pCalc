@@ -1,20 +1,22 @@
 package com.example.chris.pcalc.ast;
 
-public abstract class AstNode {
-    public AstNode getLeft() {
-        return null;
-    }
-    public abstract void setLeft(AstNode left);
+import com.example.chris.pcalc.numeric.Numeric;
 
-    public AstNode getRight() {
+public abstract class AstNode<N extends Number> {
+    public AstNode<N> getLeft() {
         return null;
     }
-    public abstract void setRight(AstNode right);
+    public abstract void setLeft(AstNode<N> left);
+
+    public AstNode<N> getRight() {
+        return null;
+    }
+    public abstract void setRight(AstNode<N> right);
 
     public abstract int getDepth();
     public abstract void setDepth(int depth);
 
-    public abstract int evaluate();
+    public abstract Numeric<N> evaluate();
 
     /**
      * Append a node to this tree. When appending,
@@ -24,7 +26,7 @@ public abstract class AstNode {
      * of the tree.
      * @param node The node to append to this tree.
      */
-    public void append(AstNode node) {
+    public void append(AstNode<N> node) {
         if (this.getLeft() == null) {
             this.setLeft(node);
         } else if (this.getRight() == null) {

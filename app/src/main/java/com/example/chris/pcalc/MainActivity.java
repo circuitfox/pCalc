@@ -6,23 +6,30 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.example.chris.pcalc.ast.Ast;
+import com.example.chris.pcalc.ast.BigIntAst;
+import com.example.chris.pcalc.ast.BigDecimalAst;
 import com.example.chris.pcalc.input.Message;
+import com.example.chris.pcalc.numeric.BigDecimal;
+import com.example.chris.pcalc.numeric.BigInt;
+import com.example.chris.pcalc.numeric.Mode;
+import com.example.chris.pcalc.numeric.Numeric;
 import com.example.chris.pcalc.parse.Tokenizer;
 import com.example.chris.pcalc.parse.Tokens;
 
-import java.util.Locale;
+import java.math.BigInteger;
 
 public class MainActivity extends AppCompatActivity
     implements ButtonGroupFragment.OnButtonPressListener {
 
     private ButtonGroupFragment buttonGroupFragment;
+    private Mode mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttonGroupFragment = (ButtonGroupFragment)getSupportFragmentManager().findFragmentById(R.id.buttonGroup);
+        mode = Mode.INT;
 
         // we want users clicking the buttons, not typing stuff in
         EditText input = findViewById(R.id.input);
@@ -53,21 +60,43 @@ public class MainActivity extends AppCompatActivity
                 text = input.getText().toString();
                 evaluate(text);
                 break;
+            case MODE:
+                mode = Mode.fromString(message.getValue());
+                switch (mode) {
+                    case INT:
+                        buttonGroupFragment.switchMode(Mode.REAL);
+                        mode = Mode.REAL;
+                        break;
+                    case REAL:
+                        buttonGroupFragment.switchMode(Mode.INT);
+                        mode = Mode.INT;
+                        break;
+                }
             default:
                 Log.w("pCalc", "Unhandled message " + message);
                 break;
         }
     }
 
-    public void evaluate(String input) {
+    private void evaluate(String input) {
         TextView result = findViewById(R.id.result);
         Log.d("pCalc", input);
         Tokens tokens = new Tokenizer(input).tokenize();
         Log.d("pCalc/parse", tokens.toString());
-        Ast ast = new Ast(tokens);
-        Log.d("pCalc/ast", ast.toString());
-        int value = ast.evaluate();
-        result.setText(String.format(Locale.getDefault(), "%d", value));
+        switch (mode) {
+            case INT:
+                BigIntAst intAst = new BigIntAst(tokens);
+                Log.d("pCalc/ast", intAst.toString());
+                BigInt intValue = intAst.evaluate();
+                result.setText(intValue.toString());
+                break;
+            case REAL:
+                BigDecimalAst decimalAst = new BigDecimalAst(tokens);
+                Log.d("pCalc/ast", decimalAst.toString());
+                BigDecimal realValue = decimalAst.evaluate();
+                result.setText(realValue.toString());
+                break;
+        }
     }
 
     public void pressButton(View view) {

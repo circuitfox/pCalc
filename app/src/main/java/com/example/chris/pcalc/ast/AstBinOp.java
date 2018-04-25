@@ -1,15 +1,16 @@
 package com.example.chris.pcalc.ast;
 
 import android.util.Log;
+import com.example.chris.pcalc.numeric.Numeric;
 
-public class AstBinOp extends AstNode {
+public class AstBinOp<N extends Number> extends AstNode<N> {
 
-    private AstNode left;
-    private AstNode right;
+    private AstNode<N> left;
+    private AstNode<N> right;
     private BinOp op;
     private int depth;
 
-    public AstBinOp(BinOp op, AstNode left) {
+    public AstBinOp(BinOp op, AstNode<N> left) {
         this.op = op;
         this.left = left;
         this.right = null;
@@ -17,22 +18,22 @@ public class AstBinOp extends AstNode {
     }
 
     @Override
-    public void setLeft(AstNode left) {
+    public void setLeft(AstNode<N> left) {
         this.left = left;
     }
 
     @Override
-    public void setRight(AstNode right) {
+    public void setRight(AstNode<N> right) {
         this.right = right;
     }
 
     @Override
-    public AstNode getLeft() {
+    public AstNode<N> getLeft() {
         return left;
     }
 
     @Override
-    public AstNode getRight() {
+    public AstNode<N> getRight() {
         return right;
     }
 
@@ -51,33 +52,33 @@ public class AstBinOp extends AstNode {
     }
 
     @Override
-    public int evaluate() {
+    public Numeric<N> evaluate() {
         switch (op) {
             case ADD:
-                return left.evaluate() + right.evaluate();
+                return left.evaluate().add(right.evaluate());
             case SUBTRACT:
-                return left.evaluate() - right.evaluate();
+                return left.evaluate().sub(right.evaluate());
             case MULTIPLY:
-                return left.evaluate() * right.evaluate();
+                return left.evaluate().mul(right.evaluate());
             case DIVIDE:
-                return left.evaluate() / right.evaluate();
+                return left.evaluate().div(right.evaluate());
             case POW:
-                return (int)Math.pow(left.evaluate(), right.evaluate());
+                return left.evaluate().pow(right.evaluate());
             case AND:
-                return left.evaluate() & right.evaluate();
+                return left.evaluate().and(right.evaluate());
             case OR:
-                return left.evaluate() | right.evaluate();
+                return left.evaluate().or(right.evaluate());
             case XOR:
-                return left.evaluate() ^ right.evaluate();
+                return left.evaluate().xor(right.evaluate());
             case MOD:
-                return left.evaluate() % right.evaluate();
+                return left.evaluate().mod(right.evaluate());
             case SHL:
-                return left.evaluate() << right.evaluate();
+                return left.evaluate().shl(right.evaluate());
             case SHR:
-                return left.evaluate() >> right.evaluate();
+                return left.evaluate().shr(right.evaluate());
             default:
                 Log.w("ast/binop", "Unimplemented binary operation " + op);
-                return 0;
+                throw new UnsupportedOperationException();
         }
     }
 

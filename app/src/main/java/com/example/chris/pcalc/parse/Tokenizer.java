@@ -35,7 +35,7 @@ public class Tokenizer {
 
             Log.v("parse", "c: " + c);
             Log.v("parse", "i: " + i);
-            if (Character.isDigit(c)) {
+            if (Character.isDigit(c) || c == '.') {
                 Log.d("parse", "isDigit: " + c);
                 if (tokenPosition == -1) {
                     tokenPosition = i;

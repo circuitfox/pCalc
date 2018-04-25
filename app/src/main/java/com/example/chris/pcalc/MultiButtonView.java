@@ -126,6 +126,26 @@ public class MultiButtonView extends ConstraintLayout
         centerButtonText.setText(text);
     }
 
+    public void setTopButtonText(int res) {
+        topButtonText.setText(res);
+    }
+
+    public void setBottomButtonText(int res) {
+        bottomButtonText.setText(res);
+    }
+
+    public void setLeftButtonText(int res) {
+        leftButtonText.setText(res);
+    }
+
+    public void setRightButtonText(int res) {
+        rightButtonText.setText(res);
+    }
+
+    public void setCenterButtonText(int res) {
+        centerButtonText.setText(res);
+    }
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent e) {
         return true;

@@ -1,6 +1,20 @@
 package com.example.chris.pcalc.numeric;
 
 public class BigDecimal implements Numeric<java.math.BigDecimal> {
+    public static class Factory implements NumericFactory<java.math.BigDecimal, BigDecimal> {
+        @Override
+        public BigDecimal fromString(String str) {
+            return new BigDecimal(new java.math.BigDecimal(str)
+                    .setScale(10, java.math.BigDecimal.ROUND_UP)
+            );
+        }
+    }
+
+    public static Factory factory() {
+        return new Factory();
+    }
+    public static BigDecimal ZERO = new BigDecimal(java.math.BigDecimal.ZERO);
+
     private java.math.BigDecimal self;
 
     public BigDecimal(java.math.BigDecimal self) {
@@ -77,6 +91,10 @@ public class BigDecimal implements Numeric<java.math.BigDecimal> {
         return self;
     }
 
+    public java.math.BigDecimal zero() {
+        return java.math.BigDecimal.ZERO;
+    }
+
     @Override
     public byte byteValue() {
         return self.byteValue();
@@ -109,6 +127,6 @@ public class BigDecimal implements Numeric<java.math.BigDecimal> {
 
     @Override
     public String toString() {
-        return self.toString();
+        return self.stripTrailingZeros().toString();
     }
 }

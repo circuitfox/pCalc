@@ -4,7 +4,8 @@ public enum MessageType {
     SYMBOL,
     CLEAR,
     DELETE,
-    EQUALS;
+    EQUALS,
+    MODE;
 
     @Override
     public String toString() {
@@ -21,6 +22,10 @@ public enum MessageType {
                 break;
             case EQUALS:
                 name = "EQUALS";
+                break;
+            case MODE:
+                name = "MODE";
+                break;
         }
         return name;
     }

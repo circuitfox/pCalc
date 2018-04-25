@@ -1,36 +1,39 @@
 package com.example.chris.pcalc.ast;
 
 import android.util.Log;
+import com.example.chris.pcalc.numeric.Numeric;
+import com.example.chris.pcalc.numeric.NumericFactory;
 import com.example.chris.pcalc.parse.Token;
-import com.example.chris.pcalc.parse.Tokens;
 
 import java.util.Iterator;
 
-public class Ast {
-    private AstNode root;
+public abstract class Ast<N extends Number> {
+    protected AstNode<N> root;
 
-    public Ast(Tokens tokens) {
-        root = parse(tokens);
-    }
-
-    public AstNode getRoot() {
+    public AstNode<N> getRoot() {
         return root;
     }
 
-    public int evaluate() {
+    protected Numeric<N> evaluate(Numeric<N> def) {
         if (root != null) {
             return root.evaluate();
         } else {
-            return 0;
+            return def;
         }
     }
 
-    private static AstNode parse(Tokens tokens) {
-        return parse(null, tokens.iterator());
+
+    public String toString() {
+        if (root != null) {
+            return root.toString();
+        } else {
+            return "";
+        }
     }
 
-    private static AstNode parse(AstNode root, Iterator<Token> tokens) {
-        AstNode node = root;
+    public static <N extends Number, T extends Numeric<N>>
+    AstNode<N> parse(AstNode<N> root, Iterator<Token> tokens, T zero, NumericFactory<N, T> factory) {
+        AstNode<N> node = root;
         int depth = 0;
         if (node != null) {
             depth = node.getDepth();
@@ -43,9 +46,9 @@ public class Ast {
                         Log.i("ast/parse", "parse into group");
                         depth++;
                         if (node == null) {
-                            node = parse(null, tokens);
+                            node = parse(null, tokens, zero, factory);
                         } else {
-                            node.setRight(parse(node.getRight(), tokens));
+                            node.setRight(parse(node.getRight(), tokens, zero, factory));
                         }
                     } else if (token.getValue().equals(")")) {
                         Log.i("ast/parse", "return from group");
@@ -56,30 +59,30 @@ public class Ast {
                     }
                     break;
                 case TOKEN_NUMBER:
-                    int value = 0;
+                    T value = zero;
                     try {
-                        value = Integer.parseInt(token.getValue());
+                        value = factory.fromString(token.getValue());
                     } catch (NumberFormatException ex) {
                         Log.e("ast/parse", "Could not parse number token");
                         Log.wtf("ast/parse", ex);
                     }
 
                     if (node == null) {
-                        node = new AstValue(value);
+                        node = new AstValue<>(value);
                         node.setDepth(depth);
                     } else {
-                        AstNode child = new AstValue(value);
+                        AstNode child = new AstValue<>(value);
                         child.setDepth(depth);
-                        node.append(new AstValue(value));
+                        node.append(new AstValue<>(value));
                     }
                     break;
                 case TOKEN_OPERATOR:
                     if (node == null) {
-                        node = new AstUnOp(UnOp.fromString(token.getValue()));
+                        node = new AstUnOp<>(UnOp.fromString(token.getValue()));
                         node.setDepth(depth);
                     }  else if (node instanceof AstValue || node instanceof AstUnOp) {
-                        AstNode left = node;
-                        node = new AstBinOp(BinOp.fromString(token.getValue()), left);
+                        AstNode<N> left = node;
+                        node = new AstBinOp<>(BinOp.fromString(token.getValue()), left);
                         node.setDepth(depth);
                     } else if (node instanceof AstBinOp) {
                         BinOp lastOp = ((AstBinOp)node).getOp();
@@ -90,14 +93,14 @@ public class Ast {
                         if (node.getDepth() < depth || op.compareTo(lastOp) > 0) {
                             // we are higher in precedence. The current tree becomes
                             // our left child
-                            node = new AstBinOp(op, node);
+                            node = new AstBinOp<>(op, node);
                             node.setDepth(depth);
                         } else {
                             // we are lower than or equal to in precedence. We become
                             // the right child of the current tree, with its current
                             // right child as our left
-                            AstNode child = new AstBinOp(op, node.getRight());
-                            node.setRight(parse(child, tokens));
+                            AstNode<N> child = new AstBinOp<>(op, node.getRight());
+                            node.setRight(parse(child, tokens, zero, factory));
                         }
                     } else {
                         Log.w("ast/parse", "unimplemented ast node type");
@@ -106,13 +109,5 @@ public class Ast {
             }
         }
         return node;
-    }
-
-    public String toString() {
-        if (root != null) {
-            return root.toString();
-        } else {
-            return "";
-        }
     }
 }

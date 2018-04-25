@@ -42,11 +42,22 @@
             android:layout_height="0dp"
             android:padding="0dp"
             android:hapticFeedbackEnabled="true"
+            android:id="@+id/button_mode"
+            android:text="@string/button_mode_int"
+            app:textSize="12sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            android:onClick="pressButton"/>
+
+    <com.example.chris.pcalc.MultiButtonView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="0dp"
+            android:hapticFeedbackEnabled="true"
             android:id="@+id/button_mod"
             android:text="@string/button_mod"
             app:leftButtonText="@string/button_shl"
             app:rightButtonText="@string/button_shr"
-            app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -215,6 +226,7 @@
             android:paddingBottom="5dp"
             android:hapticFeedbackEnabled="true"
             android:text="@string/button_pleft"
+            app:bottomButtonText="@string/button_pright"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -235,8 +247,8 @@
             android:layout_height="0dp"
             android:paddingBottom="5dp"
             android:hapticFeedbackEnabled="true"
-            android:id="@+id/button_pright"
-            android:text="@string/button_pright"
+            android:id="@+id/button_dec"
+            android:text="@string/button_dec"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>

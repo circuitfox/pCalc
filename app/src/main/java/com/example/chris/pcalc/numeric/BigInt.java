@@ -3,6 +3,19 @@ package com.example.chris.pcalc.numeric;
 import java.math.BigInteger;
 
 public class BigInt implements Numeric<BigInteger> {
+    public static class Factory implements NumericFactory<BigInteger, BigInt> {
+        @Override
+        public BigInt fromString(String str) {
+            return new BigInt(new BigInteger(str));
+        }
+    }
+
+    public static Factory factory() {
+        return new Factory();
+    }
+
+    public static final BigInt ZERO = new BigInt(BigInteger.ZERO);
+
     private BigInteger self;
 
     public BigInt(BigInteger self) {
