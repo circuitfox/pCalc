@@ -4,7 +4,6 @@ import com.example.chris.pcalc.numeric.Numeric;
 
 public class AstValue<N extends Number> extends AstNode<N> {
     private Numeric<N> value;
-    private int depth;
 
     public AstValue(Numeric<N> value) {
         this.value = value;
@@ -19,16 +18,6 @@ public class AstValue<N extends Number> extends AstNode<N> {
     @Override
     public void setRight(AstNode<N> right) {
         throw new UnsupportedOperationException("AstValue has no children");
-    }
-
-    @Override
-    public int getDepth() {
-        return depth;
-    }
-
-    @Override
-    public void setDepth(int depth) {
-        this.depth = depth;
     }
 
     @Override

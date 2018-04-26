@@ -8,7 +8,6 @@ public class AstBinOp<N extends Number> extends AstNode<N> {
     private AstNode<N> left;
     private AstNode<N> right;
     private BinOp op;
-    private int depth;
 
     public AstBinOp(BinOp op, AstNode<N> left) {
         this.op = op;
@@ -39,16 +38,6 @@ public class AstBinOp<N extends Number> extends AstNode<N> {
 
     public BinOp getOp() {
         return op;
-    }
-
-    @Override
-    public int getDepth() {
-        return depth;
-    }
-
-    @Override
-    public void setDepth(int depth) {
-        this.depth = depth;
     }
 
     @Override

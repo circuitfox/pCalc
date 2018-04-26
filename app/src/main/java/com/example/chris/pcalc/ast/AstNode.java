@@ -3,6 +3,8 @@ package com.example.chris.pcalc.ast;
 import com.example.chris.pcalc.numeric.Numeric;
 
 public abstract class AstNode<N extends Number> {
+    protected int depth;
+
     public AstNode<N> getLeft() {
         return null;
     }
@@ -13,8 +15,13 @@ public abstract class AstNode<N extends Number> {
     }
     public abstract void setRight(AstNode<N> right);
 
-    public abstract int getDepth();
-    public abstract void setDepth(int depth);
+    public int getDepth() {
+        return depth;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
 
     public abstract Numeric<N> evaluate();
 

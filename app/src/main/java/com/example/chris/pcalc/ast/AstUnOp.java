@@ -6,7 +6,6 @@ import com.example.chris.pcalc.numeric.Numeric;
 public class AstUnOp<N extends Number> extends AstNode<N> {
     private AstNode<N> right;
     private UnOp op;
-    private int depth;
 
     public AstUnOp(UnOp op) {
         this.right = null;
@@ -27,16 +26,6 @@ public class AstUnOp<N extends Number> extends AstNode<N> {
     @Override
     public void setRight(AstNode<N> right) {
         this.right = right;
-    }
-
-    @Override
-    public int getDepth() {
-        return depth;
-    }
-
-    @Override
-    public void setDepth(int depth) {
-        this.depth = depth;
     }
 
     @Override
