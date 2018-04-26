@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.example.chris.pcalc.input.Message;
 import com.example.chris.pcalc.input.MessageType;
 import com.example.chris.pcalc.numeric.Mode;
@@ -51,6 +53,26 @@ public class ButtonGroupFragment extends Fragment {
         // Inflate the layout for this fragment
         Log.d("button group fragment", "onCreateView");
         return inflater.inflate(R.layout.fragment_button_group, container, false);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Activity activity = getActivity();
+        if (activity != null) {
+            TextView result = activity.findViewById(R.id.result);
+            outState.putString("result", result.getText().toString());
+        }
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        Activity activity = getActivity();
+        if (activity != null && savedInstanceState != null) {
+            TextView result = activity.findViewById(R.id.result);
+            result.setText(savedInstanceState.getString("result", ""));
+        }
     }
 
     public void pressButton(View view) {

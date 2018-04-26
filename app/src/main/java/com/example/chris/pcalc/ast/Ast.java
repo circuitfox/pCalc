@@ -15,11 +15,14 @@ public abstract class Ast<N extends Number> {
     }
 
     protected Numeric<N> evaluate(Numeric<N> def) {
-        if (root != null) {
-            return root.evaluate();
-        } else {
-            return def;
+        try {
+            if (root != null) {
+                return root.evaluate();
+            }
+        } catch (Exception ex) {
+            Log.wtf("pCalc", "Exception while evaluating", ex);
         }
+        return def;
     }
 
 

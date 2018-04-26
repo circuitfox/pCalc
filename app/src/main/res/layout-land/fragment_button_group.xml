@@ -18,6 +18,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_equals"
             android:text="@string/equals"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -44,6 +46,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_delete"
             android:text="@string/button_delete"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -55,6 +59,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_clear"
             android:text="@string/button_clear"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -66,6 +72,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button7"
             android:text="@string/button7"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -77,6 +85,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button8"
             android:text="@string/button8"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -88,6 +98,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button9"
             android:text="@string/button9"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -101,6 +113,8 @@
             android:text="@string/button_times"
             app:topButtonText="@string/button_pow"
             app:bottomButtonText="@string/button_xor"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -113,6 +127,8 @@
             android:id="@+id/button_div"
             android:text="@string/button_div"
             app:bottomButtonText="@string/button_or"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -124,7 +140,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_mode"
             android:text="@string/button_mode_int"
-            app:textSize="12sp"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -136,6 +153,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button4"
             android:text="@string/button4"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -147,6 +166,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button5"
             android:text="@string/button5"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -158,6 +179,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button6"
             android:text="@string/button6"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -170,6 +193,8 @@
             android:id="@+id/button_plus"
             android:text="@string/button_plus"
             app:bottomButtonText="@string/button_and"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -182,6 +207,8 @@
             android:id="@+id/button_minus"
             android:text="@string/button_minus"
             app:bottomButtonText="@string/button_not"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -195,6 +222,8 @@
             android:text="@string/button_mod"
             app:leftButtonText="@string/button_shl"
             app:rightButtonText="@string/button_shr"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -206,6 +235,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button1"
             android:text="@string/button1"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -217,6 +248,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button2"
             android:text="@string/button2"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -228,6 +261,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button3"
             android:text="@string/button3"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -239,6 +274,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button0"
             android:text="@string/button0"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -250,6 +287,8 @@
             android:hapticFeedbackEnabled="true"
             android:id="@+id/button_dec"
             android:text="@string/button_dec"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
@@ -261,6 +300,8 @@
             android:hapticFeedbackEnabled="true"
             android:text="@string/button_pleft"
             app:bottomButtonText="@string/button_pright"
+            app:textSize="8sp"
+            app:smallTextSize="6sp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             android:onClick="pressButton"/>
