@@ -1,22 +1,19 @@
 package com.example.chris.pcalc;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.example.chris.pcalc.ast.BigIntAst;
 import com.example.chris.pcalc.ast.BigDecimalAst;
+import com.example.chris.pcalc.ast.BigIntAst;
 import com.example.chris.pcalc.input.Message;
 import com.example.chris.pcalc.numeric.BigDecimal;
 import com.example.chris.pcalc.numeric.BigInt;
 import com.example.chris.pcalc.numeric.Mode;
-import com.example.chris.pcalc.numeric.Numeric;
 import com.example.chris.pcalc.parse.Tokenizer;
 import com.example.chris.pcalc.parse.Tokens;
-
-import java.math.BigInteger;
 
 public class MainActivity extends AppCompatActivity
     implements ButtonGroupFragment.OnButtonPressListener {
@@ -29,11 +26,29 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttonGroupFragment = (ButtonGroupFragment)getSupportFragmentManager().findFragmentById(R.id.buttonGroup);
-        mode = Mode.INT;
+        if (savedInstanceState != null) {
+            mode = Mode.valueOf(savedInstanceState.getString("mode", Mode.INT.toString()));
+        } else {
+            mode = Mode.INT;
+        }
+        buttonGroupFragment.switchMode(mode);
 
         // we want users clicking the buttons, not typing stuff in
         EditText input = findViewById(R.id.input);
         input.setKeyListener(null);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d("pcalc", "on saveinstancestate");
+        outState.putString("mode", mode.toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mode = Mode.valueOf(savedInstanceState.getString("mode", Mode.INT.toString()));
     }
 
     @Override
@@ -72,6 +87,7 @@ public class MainActivity extends AppCompatActivity
                         mode = Mode.INT;
                         break;
                 }
+                break;
             default:
                 Log.w("pCalc", "Unhandled message " + message);
                 break;

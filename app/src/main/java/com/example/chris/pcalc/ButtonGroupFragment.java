@@ -49,6 +49,7 @@ public class ButtonGroupFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.d("button group fragment", "onCreateView");
         return inflater.inflate(R.layout.fragment_button_group, container, false);
     }
 
